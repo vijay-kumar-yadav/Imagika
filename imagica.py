@@ -494,7 +494,7 @@ def recent_images():
             image=recent_image_tup[0], command=lambda: windows_viewer(files[0], 1)
         )
         win4_btn_1.pack()
-        win4_label_1.grid(row=0, column=0, padx=8, pady=(40, 40))
+        win4_label_1.grid(row=0, column=0, padx=8, pady=(40, 0))
 
     if len(files) >= 2:
         history_empty_label.pack_forget()
@@ -508,25 +508,25 @@ def recent_images():
             image=recent_image_tup[2], command=lambda: windows_viewer(files[2], 3)
         )
         win4_btn_3.pack()
-        win4_label_3.grid(row=0, column=2, padx=8, pady=(40, 40))
+        win4_label_3.grid(row=0, column=2, padx=8, pady=(40, 0))
     if len(files) >= 4:
         win4_btn_4.configure(
             image=recent_image_tup[3], command=lambda: windows_viewer(files[3], 4)
         )
         win4_btn_4.pack()
-        win4_label_4.grid(row=1, column=0, padx=8, pady=(40, 0))
+        win4_label_4.grid(row=1, column=0, padx=8, pady=(0, 0))
     if len(files) >= 5:
         win4_btn_5.configure(
             image=recent_image_tup[4], command=lambda: windows_viewer(files[4], 5)
         )
         win4_btn_5.pack()
-        win4_label_5.grid(row=1, column=1, padx=8, pady=(40, 0))
+        win4_label_5.grid(row=1, column=1, padx=8, pady=(70, 0))
     if len(files) == 6:
         win4_btn_6.configure(
             image=recent_image_tup[5], command=lambda: windows_viewer(files[5], 6)
         )
         win4_btn_6.pack()
-        win4_label_6.grid(row=1, column=2, padx=8, pady=(40, 0))
+        win4_label_6.grid(row=1, column=2, padx=8, pady=(0, 0))
     if len(files) == 0:
         history_titleinfo_label.pack_forget()
         history_empty_label.pack(pady=(200, 0))
