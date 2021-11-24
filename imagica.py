@@ -122,12 +122,13 @@ def on_leave_4(leave):
 def on_enter_5(time_date):
     date, time = time_date[1], time_date[0]
     created_time_label.config(
-        text="Created On:  %s\nCreated At:  %s" % (date, time),
+        text="Created On:  %s\n\nCreated At:  %s" % (date, time),
         justify="left",
-        bg="white",
-        font="Ariel",
+        bg=white,
+        fg="black",
+        font=("times new roman BOLD", 12),
     )
-    created_time_label.place(relx=0.38, rely=0.53, width=180, height=60)
+    created_time_label.place(relx=0.38, rely=0.52, width=180, height=80)
 
 
 def on_leave_5(leave):
@@ -458,21 +459,19 @@ win4_back_btn.bind("<Enter>", lambda key: on_enter_2(2))
 win4_back_btn.bind("<Leave>", lambda key: on_leave_2(2))
 
 # defining func to fetch date and time
-def fetch_time(image_path, key, index):
+def fetch_time(image_path):
     time_img = int(image_path[15:-4])  # getting time from path at which image converted
     time = Time.datetime.fromtimestamp(time_img).strftime("%H:%M:%S")
     date = Time.datetime.fromtimestamp(time_img).strftime("%d-%m-%Y")
     time_date = [time, date]
-    if key:
-        windows_viewer(image_path, date, time, index)
     return time_date
 
 
 # defining func to display image in opencv image read window
-def windows_viewer(image_path, date, time, index):
+def windows_viewer(image_path, index):
     img = cv2.imread(image_path)
     img = cv2.resize(img, (550, 600))
-    cv2.imshow("Image_%d at %s on %s" % (index, time, date), img)
+    cv2.imshow("Image_%d" % (index), img)
 
 
 # assigning labels
@@ -514,7 +513,7 @@ def recent_images():
 
     time_date_list = []
     for e in files:
-        time_date = fetch_time(e, False, None)
+        time_date = fetch_time(e)
         time_date_list.append(time_date)
 
     for i in range(len(files)):
@@ -523,8 +522,9 @@ def recent_images():
         recent_image_tup.append(img)
     if len(files) >= 1:
         win4_btn_1.configure(
-            image=recent_image_tup[0], command=lambda: fetch_time(files[0], True, 1)
+            image=recent_image_tup[0], command=lambda: windows_viewer(files[0], 1)
         )
+
         win4_btn_1.pack()
         win4_label_1.grid(row=0, column=0, padx=8, pady=(40, 0))
 
@@ -534,8 +534,9 @@ def recent_images():
     if len(files) >= 2:
         history_empty_label.pack_forget()
         win4_btn_2.configure(
-            image=recent_image_tup[1], command=lambda: fetch_time(files[1], True, 2)
+            image=recent_image_tup[1], command=lambda: windows_viewer(files[1], 2)
         )
+
         win4_btn_2.pack()
         win4_label_2.grid(row=0, column=1, padx=8, pady=(40, 40))
 
@@ -544,8 +545,9 @@ def recent_images():
 
     if len(files) >= 3:
         win4_btn_3.configure(
-            image=recent_image_tup[2], command=lambda: fetch_time(files[2], True, 3)
+            image=recent_image_tup[2], command=lambda: windows_viewer(files[2], 3)
         )
+
         win4_btn_3.pack()
         win4_label_3.grid(row=0, column=2, padx=8, pady=(40, 0))
 
@@ -554,8 +556,9 @@ def recent_images():
 
     if len(files) >= 4:
         win4_btn_4.configure(
-            image=recent_image_tup[3], command=lambda: fetch_time(files[3], True, 4)
+            image=recent_image_tup[3], command=lambda: windows_viewer(files[3], 4)
         )
+
         win4_btn_4.pack()
         win4_label_4.grid(row=1, column=0, padx=8, pady=(0, 0))
 
@@ -564,8 +567,9 @@ def recent_images():
 
     if len(files) >= 5:
         win4_btn_5.configure(
-            image=recent_image_tup[4], command=lambda: fetch_time(files[4], True, 5)
+            image=recent_image_tup[4], command=lambda: windows_viewer(files[4], 5)
         )
+
         win4_btn_5.pack()
         win4_label_5.grid(row=1, column=1, padx=8, pady=(70, 0))
 
@@ -574,8 +578,9 @@ def recent_images():
 
     if len(files) == 6:
         win4_btn_6.configure(
-            image=recent_image_tup[5], command=lambda: fetch_time(files[5], True, 6)
+            image=recent_image_tup[5], command=lambda: windows_viewer(files[5], 6)
         )
+
         win4_btn_6.pack()
         win4_label_6.grid(row=1, column=2, padx=8, pady=(0, 0))
 
