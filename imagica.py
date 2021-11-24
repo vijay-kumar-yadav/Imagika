@@ -54,7 +54,7 @@ window.columnconfigure(0, weight=1)
 
 # Frame defined for MultiWindow display
 frame_1 = Frame(window, bg=white)
-frame_2 = Frame(window, bg=white)
+frame_2 = Frame(window, bg="#E4E9F7")
 frame_3 = Frame(window, bg="#E4E9F7")
 frame_4 = Frame(window, bg="#E4E9F7")
 
@@ -119,14 +119,14 @@ def on_leave_4(leave):
 
 
 # function to display when images were converted
-def on_enter_5(time_date):
+def on_enter_5(time_date, colour):
     date, time = time_date[1], time_date[0]
     created_time_label.config(
         text="Created On:  %s\n\nCreated At:  %s" % (date, time),
         justify="left",
         bg=white,
-        fg="black",
-        font=("times new roman BOLD", 12),
+        fg=colour,
+        font=("Helvetica BOLD", 12),
     )
     created_time_label.place(relx=0.38, rely=0.52, width=180, height=80)
 
@@ -169,21 +169,22 @@ win1_btn.bind("<Leave>", on_leave_1)
 ##     2nd   Window  ##
 #######################
 # frame for title of upload window
-win2_title_frame = Frame(frame_2, bg=white)
+win2_title_frame = Frame(frame_2, bg="#E4E9F7")
 win2_title_frame.pack(side=TOP)
 # frame for upload image
-win2_orgimg_frame = Frame(frame_2, bg=white)
+win2_orgimg_frame = Frame(frame_2, bg="#E4E9F7")
 win2_orgimg_frame.pack(pady=8)
 # frame for bottom button to solve side by side placing button issue
-win2_btn_frame = Frame(frame_2, bg=white)
+win2_btn_frame = Frame(frame_2, bg="#E4E9F7")
 win2_btn_frame.pack(side=BOTTOM)
 
 # title label for converted image page
 title_label = Label(
     win2_title_frame,
     text="Transform Your Image to Pencil Sketch",
-    font=("Arial", 25),
-    bg=white,
+    font=("Times new roman BOLD", 23),
+    bg="#E4E9F7",
+    fg="#22A75A",
 )
 title_label.pack(anchor=N)
 
@@ -194,8 +195,8 @@ win2_recent_history_btn = Button(
     frame_2,
     image=recent_inactive_btn,
     command=lambda: switch_window(frame_4, 4),
-    bg=white,
-    activebackground=white,
+    bg="#E4E9F7",
+    activebackground="#E4E9F7",
     bd=0,
     relief=RAISED,
 )
@@ -211,8 +212,8 @@ home_btn = Button(
     frame_2,
     image=btn_inactive_home,
     command=lambda: switch_window(frame_1, 1),
-    bg=white,
-    activebackground=white,
+    bg="#E4E9F7",
+    activebackground="#E4E9F7",
     bd=0,
     relief=RAISED,
 )
@@ -302,7 +303,7 @@ frame_org_label.pack(pady=30)"""
 
 # Global label to show origional image by user
 default_image = image_loader("image/default.png", 510, 500)
-label_org = Label(win2_orgimg_frame, bd=0, image=default_image, bg=white)
+label_org = Label(win2_orgimg_frame, bd=0, image=default_image, bg="#E4E9F7")
 label_org.pack(pady=30)
 
 
@@ -325,7 +326,11 @@ win3_btn_frame.pack(side=BOTTOM)
 
 # title label for converted image page
 title_label = Label(
-    win3_title_frame, text="Pencil Sketch", font=("Arial", 25), bg="#E4E9F7"
+    win3_title_frame,
+    text="Pencil Sketch",
+    font=("times new roman BOLD", 25),
+    bg="#E4E9F7",
+    fg="#A9230E",
 )
 title_label.pack(side=TOP)
 
@@ -430,7 +435,11 @@ history_empty_label = Label(
 
 # title label
 history_title_label = Label(
-    win4_title_frame, text="Recently Converted Images", font=("Arial", 20), bg="#E4E9F7"
+    win4_title_frame,
+    text="Recently Converted Images",
+    font=("Times new roman Bold", 24),
+    bg="#E4E9F7",
+    fg="#0F3BFF",
 )
 history_title_label.pack(side=TOP, padx=(0, 10))
 history_titleinfo_label = Label(
@@ -476,22 +485,52 @@ def windows_viewer(image_path, index):
 
 # assigning labels
 win4_label_1 = LabelFrame(
-    win4_recentimgs_frame, text="1", labelanchor=S, font="Arial", bg="#E4E9F7"
+    win4_recentimgs_frame,
+    text="1",
+    labelanchor=S,
+    font=("times new roman BOLD", 13),
+    bg="#E4E9F7",
+    fg="red",
 )
 win4_label_2 = LabelFrame(
-    win4_recentimgs_frame, text="2", labelanchor=S, font="Arial", bg="#E4E9F7"
+    win4_recentimgs_frame,
+    text="2",
+    labelanchor=S,
+    font=("times new roman BOLD", 13),
+    bg="#E4E9F7",
+    fg="green",
 )
 win4_label_3 = LabelFrame(
-    win4_recentimgs_frame, text="3", labelanchor=S, font="Arial", bg="#E4E9F7"
+    win4_recentimgs_frame,
+    text="3",
+    labelanchor=S,
+    font=("times new roman BOLD", 13),
+    bg="#E4E9F7",
+    fg="blue",
 )
 win4_label_4 = LabelFrame(
-    win4_recentimgs_frame, text="4", labelanchor=S, font="Arial", bg="#E4E9F7"
+    win4_recentimgs_frame,
+    text="4",
+    labelanchor=S,
+    font=("times new roman BOLD", 13),
+    bg="#E4E9F7",
+    fg="purple",
 )
 win4_label_5 = LabelFrame(
-    win4_recentimgs_frame, text="5", labelanchor=S, font="Arial", bg="#E4E9F7"
+    win4_recentimgs_frame,
+    text="5",
+    labelanchor=S,
+    font=("times new roman BOLD", 13),
+    bg="#E4E9F7",
+    fg="orange",
 )
 win4_label_6 = LabelFrame(
-    win4_recentimgs_frame, text="6", labelanchor=S, font="Arial", bg="#E4E9F7"
+    win4_recentimgs_frame,
+    text="6",
+    labelanchor=S,
+    font=("times new roman BOLD", 13),
+    bg="#E4E9F7",
+    fg="black",
 )
 
 # assigning btns
@@ -528,7 +567,7 @@ def recent_images():
         win4_btn_1.pack()
         win4_label_1.grid(row=0, column=0, padx=8, pady=(40, 0))
 
-        win4_btn_1.bind("<Enter>", lambda k: on_enter_5(time_date_list[0]))
+        win4_btn_1.bind("<Enter>", lambda time: on_enter_5(time_date_list[0], "red"))
         win4_btn_1.bind("<Leave>", on_leave_5)
 
     if len(files) >= 2:
@@ -538,9 +577,9 @@ def recent_images():
         )
 
         win4_btn_2.pack()
-        win4_label_2.grid(row=0, column=1, padx=8, pady=(40, 40))
+        win4_label_2.grid(row=0, column=1, padx=8, pady=(40, 30))
 
-        win4_btn_2.bind("<Enter>", lambda k: on_enter_5(time_date_list[1]))
+        win4_btn_2.bind("<Enter>", lambda time: on_enter_5(time_date_list[1], "green"))
         win4_btn_2.bind("<Leave>", on_leave_5)
 
     if len(files) >= 3:
@@ -551,7 +590,7 @@ def recent_images():
         win4_btn_3.pack()
         win4_label_3.grid(row=0, column=2, padx=8, pady=(40, 0))
 
-        win4_btn_3.bind("<Enter>", lambda k: on_enter_5(time_date_list[2]))
+        win4_btn_3.bind("<Enter>", lambda time: on_enter_5(time_date_list[2], "blue"))
         win4_btn_3.bind("<Leave>", on_leave_5)
 
     if len(files) >= 4:
@@ -562,7 +601,7 @@ def recent_images():
         win4_btn_4.pack()
         win4_label_4.grid(row=1, column=0, padx=8, pady=(0, 0))
 
-        win4_btn_4.bind("<Enter>", lambda k: on_enter_5(time_date_list[3]))
+        win4_btn_4.bind("<Enter>", lambda time: on_enter_5(time_date_list[3], "purple"))
         win4_btn_4.bind("<Leave>", on_leave_5)
 
     if len(files) >= 5:
@@ -573,7 +612,7 @@ def recent_images():
         win4_btn_5.pack()
         win4_label_5.grid(row=1, column=1, padx=8, pady=(70, 0))
 
-        win4_btn_5.bind("<Enter>", lambda k: on_enter_5(time_date_list[4]))
+        win4_btn_5.bind("<Enter>", lambda time: on_enter_5(time_date_list[4], "orange"))
         win4_btn_5.bind("<Leave>", on_leave_5)
 
     if len(files) == 6:
@@ -584,7 +623,7 @@ def recent_images():
         win4_btn_6.pack()
         win4_label_6.grid(row=1, column=2, padx=8, pady=(0, 0))
 
-        win4_btn_6.bind("<Enter>", lambda k: on_enter_5(time_date_list[5]))
+        win4_btn_6.bind("<Enter>", lambda time: on_enter_5(time_date_list[5], "black"))
         win4_btn_6.bind("<Leave>", on_leave_5)
 
     if len(files) == 0:
