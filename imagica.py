@@ -20,7 +20,6 @@ def switch_window(switch_frame, size_key):
         )
         return
     else:
-        print("---->", size_key, fileHandler.getRecentGPImages())
         switch_frame.tkraise()
     if size_key == 1:
         window_geometry(500, 600)
