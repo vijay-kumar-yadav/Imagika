@@ -13,7 +13,15 @@ white = "#fff"
 
 # Function to switch window #size_tkey->key value to change size of window #1 for 1st
 def switch_window(switch_frame, size_key):
-    switch_frame.tkraise()
+    if len(fileHandler.getRecentGPImages()) == 0 and size_key == 4:
+        messagebox.showinfo(
+            "Info",
+            "Please convert at least one image to see recent converted images",
+        )
+        return
+    else:
+        print("---->", size_key, fileHandler.getRecentGPImages())
+        switch_frame.tkraise()
     if size_key == 1:
         window_geometry(500, 600)
         window.config(bg=white)
@@ -424,14 +432,6 @@ win4_title_frame.pack(side=TOP)
 win4_recentimgs_frame = Frame(frame_4, bg="#E4E9F7")
 win4_recentimgs_frame.pack(pady=8)
 
-# label to show no image in history
-history_empty_label = Label(
-    win4_recentimgs_frame,
-    text="☹ No image to show",
-    font=("Arial", 18),
-    bg="#E4E9F7",
-    fg="red",
-)
 
 # title label
 history_title_label = Label(
@@ -571,7 +571,6 @@ def recent_images():
         win4_btn_1.bind("<Leave>", on_leave_5)
 
     if len(files) >= 2:
-        history_empty_label.pack_forget()
         win4_btn_2.configure(
             image=recent_image_tup[1], command=lambda: windows_viewer(files[1], 2)
         )
@@ -625,11 +624,6 @@ def recent_images():
 
         win4_btn_6.bind("<Enter>", lambda time: on_enter_5(time_date_list[5], "black"))
         win4_btn_6.bind("<Leave>", on_leave_5)
-
-    if len(files) == 0:
-        history_titleinfo_label.pack_forget()
-        history_empty_label.pack(pady=(200, 0))
-        messagebox.showinfo("Info", "No image to show")
 
 
 switch_window(frame_1, 1)
