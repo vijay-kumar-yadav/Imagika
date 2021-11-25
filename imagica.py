@@ -124,8 +124,8 @@ def on_enter_5(time_date, colour):
     created_time_label.config(
         text="Created On:  %s\n\nCreated At:  %s" % (date, time),
         justify="left",
-        bg=white,
         fg=colour,
+        bg="#E4E9F7",
         font=("Helvetica BOLD", 12),
     )
     created_time_label.place(relx=0.38, rely=0.52, width=180, height=80)
@@ -522,7 +522,7 @@ win4_label_5 = LabelFrame(
     labelanchor=S,
     font=("times new roman BOLD", 13),
     bg="#E4E9F7",
-    fg="orange",
+    fg="brown",
 )
 win4_label_6 = LabelFrame(
     win4_recentimgs_frame,
@@ -612,7 +612,7 @@ def recent_images():
         win4_btn_5.pack()
         win4_label_5.grid(row=1, column=1, padx=8, pady=(70, 0))
 
-        win4_btn_5.bind("<Enter>", lambda time: on_enter_5(time_date_list[4], "orange"))
+        win4_btn_5.bind("<Enter>", lambda time: on_enter_5(time_date_list[4], "brown"))
         win4_btn_5.bind("<Leave>", on_leave_5)
 
     if len(files) == 6:
