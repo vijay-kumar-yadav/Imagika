@@ -16,7 +16,7 @@ def switch_window(switch_frame, size_key):
     if len(fileHandler.getRecentGPImages()) == 0 and size_key == 4:
         messagebox.showinfo(
             "Info",
-            "Please convert at least one image to see recent converted images",
+            "Please convert at least one image to see recently converted images",
         )
         return
     else:
