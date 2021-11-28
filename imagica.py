@@ -435,10 +435,6 @@ if __name__ == "__main__":
         activeforeground=white,
     )
 
-    # defining Label frame for origional image
-    """frame_org_label=LabelFrame(frame_2,text="Your Image Here",font='Helvetic',labelanchor='s',fg='magenta',bd=3,relief='raise')
-    frame_org_label.pack(pady=30)"""
-
     # Global label to show origional image by user
     default_image = image_loader("image/default.png", 510, 500)
     label_org = Label(win2_orgimg_frame, bd=0, image=default_image, bg="#E4E9F7")
