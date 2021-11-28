@@ -290,6 +290,15 @@ def recent_images():
         win4_btn_6.bind("<Leave>", on_leave_5)
 
 
+## defining function to ask if he really want to close window you press enter to exit after popup
+def on_close():
+    resp = messagebox.askquestion("Exit", "Are you sure you want to exit?")
+    if resp == "yes":
+        window.destroy()
+    else:
+        return
+
+
 if __name__ == "__main__":
     # Parent Window
     window = Tk()
@@ -618,5 +627,8 @@ if __name__ == "__main__":
     # Label for date and time when image created
     created_time_label = Label(frame_4)
 
+    # asking if user want to close window
+    window.protocol("WM_DELETE_WINDOW", on_close)
+    window.protocol("WM_MINIMIZE_WINDOW", lambda: print("good"))
     switch_window(frame_1, 1)
     window.mainloop()

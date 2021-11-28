@@ -1,4 +1,3 @@
-# Import the library
 import os
 import cv2
 import time
