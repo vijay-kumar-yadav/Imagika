@@ -629,6 +629,6 @@ if __name__ == "__main__":
 
     # asking if user want to close window
     window.protocol("WM_DELETE_WINDOW", on_close)
-    window.protocol("WM_MINIMIZE_WINDOW", lambda: print("good"))
+
     switch_window(frame_1, 1)
     window.mainloop()
