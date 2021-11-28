@@ -156,7 +156,7 @@ def get_path():
     if extension in ["jpg", "png", "jpeg", "jfef"]:
         img = image_loader(img_path, 510, 500)
         # place here because when user upload image convert>>> button will show up
-        win2_btn_2.pack(side=RIGHT, padx=(120, 0), ipadx=10, ipady=5)
+        win2_btn_2.pack(side=RIGHT, padx=(120, 0), ipadx=10, ipady=5, pady=(0, 10))
         display_img(img)
     else:
         messagebox.showinfo("Info", "Please select an image file")
@@ -420,12 +420,12 @@ if __name__ == "__main__":
         activebackground="#197DFF",
         activeforeground=white,
     )
-    win2_btn_1.pack(side=LEFT, ipadx=10, ipady=5)
+    win2_btn_1.pack(side=LEFT, ipadx=10, ipady=5, pady=(0, 10))
 
     # defining button to convert image to pencil sketch
     win2_btn_2 = Button(
         win2_btn_frame,
-        text="Convert >>>",
+        text="Convert Image",
         command=lambda: switch_window(frame_3, 3),
         relief="flat",
         bg="#47D182",
