@@ -51,4 +51,4 @@ See also the list of [contributors](https://github.com/vijay-kumar-yadav/Image-t
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This is an open source project.
